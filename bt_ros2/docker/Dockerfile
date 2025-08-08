@@ -8,6 +8,7 @@ SHELL ["/bin/bash", "-c"]
 RUN apt-get update && apt-get install -y \
     git \
     colcon-common-extensions \
+    ros-humble-behaviortree-cpp-v3 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a colcon workspace and a source directory

@@ -55,6 +55,7 @@ rclcpp_action::GoalResponse BehaviorTreeNode::handle_goal(
 rclcpp_action::CancelResponse BehaviorTreeNode::handle_cancel(
   const std::shared_ptr<GoalHandleExecuteCommand> goal_handle)
 {
+  (void)goal_handle;
   RCLCPP_INFO(this->get_logger(), "Received request to cancel goal");
   // Always accept cancel requests
   return rclcpp_action::CancelResponse::ACCEPT;

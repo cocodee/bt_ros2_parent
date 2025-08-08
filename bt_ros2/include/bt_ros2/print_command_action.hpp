@@ -1,8 +1,7 @@
 #ifndef PRINT_COMMAND_ACTION_HPP_
 #define PRINT_COMMAND_ACTION_HPP_
 
-#include "behaviortree_cpp/basic_types.h"
-#include "behaviortree_cpp/tree_node.h"
+#include "behaviortree_cpp_v3/action_node.h"
 #include "rclcpp/rclcpp.hpp"
 
 // Simple synchronous action that prints a message from its input port.

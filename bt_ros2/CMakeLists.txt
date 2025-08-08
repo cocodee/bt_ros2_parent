@@ -1,15 +1,16 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.16)
 project(bt_ros2)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
-
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
-find_package(behaviortree_cpp REQUIRED)
+find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(my_robot_interfaces REQUIRED)
 
 # Include directories
@@ -24,7 +25,7 @@ target_include_directories(print_command_action PUBLIC
   $<INSTALL_INTERFACE:include>
 )
 ament_target_dependencies(print_command_action
-  behaviortree_cpp
+  behaviortree_cpp_v3
   rclcpp
 )
 
@@ -39,7 +40,7 @@ target_include_directories(behavior_tree_node_lib PUBLIC
 ament_target_dependencies(behavior_tree_node_lib
   rclcpp
   rclcpp_action
-  behaviortree_cpp
+  behaviortree_cpp_v3
   my_robot_interfaces
 )
 target_link_libraries(behavior_tree_node_lib
