@@ -1,0 +1,11 @@
+<root main_tree_to_execute="MainTree">
+    <BehaviorTree ID="MainTree">
+        <Sequence>
+            <!-- 
+              The 'received_command' will be written to the blackboard
+              by the ROS 2 Action Server when a new goal is accepted.
+            -->
+            <PrintCommand message="{received_command}"/>
+        </Sequence>
+    </BehaviorTree>
+</root>
