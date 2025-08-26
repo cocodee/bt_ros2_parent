@@ -1,0 +1,16 @@
+# SynchronizedMove.action
+# The Goal
+# 目标关节位置，使用扁平化的数组
+float64[] left_arm_positions
+float64[] right_arm_positions
+# 运动时间
+builtin_interfaces/Duration time_from_start
+---
+# The Result
+bool success
+string message
+---
+# The Feedback
+# (可选) 可以在这里报告每个手臂的进度
+float32 left_arm_progress
+float32 right_arm_progress

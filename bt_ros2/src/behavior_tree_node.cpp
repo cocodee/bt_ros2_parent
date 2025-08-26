@@ -1,5 +1,7 @@
 #include "bt_ros2/behavior_tree_node.hpp"
-
+#include "bt_ros2/synchronized_move_bt_node.hpp"
+#include "bt_ros2/print_command_action.hpp"
+#include "bt_ros2/switch_controller_node.hpp"
 namespace bt_ros2
 {
 
@@ -11,6 +13,8 @@ BehaviorTreeNode::BehaviorTreeNode(const rclcpp::NodeOptions & options)
 
   // Register our custom node into the factory
   factory_.registerNodeType<PrintCommand>("PrintCommand");
+  factory_.registerNodeType<SwitchController>("SwitchController");
+  factory_.registerNodeType<SynchronizedMoveNode>("SynchronizedMove");
 
   // Create the blackboard
   blackboard_ = BT::Blackboard::create();

@@ -12,7 +12,15 @@ find_package(rclcpp REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(behaviortree_cpp_v3 REQUIRED)
 find_package(my_robot_interfaces REQUIRED)
+find_package(nav2_behavior_tree REQUIRED)
+find_package(controller_manager_msgs REQUIRED)
 
+# ----------------------------------------
+
+# Assuming your code is being built as a library
+add_library(behavior_tree_node_lib
+  src/behavior_tree_node.cpp
+)
 # Include directories
 include_directories(include)
 
@@ -29,10 +37,7 @@ ament_target_dependencies(print_command_action
   rclcpp
 )
 
-# Behavior Tree Node Class
-add_library(behavior_tree_node_lib
-  src/behavior_tree_node.cpp
-)
+
 target_include_directories(behavior_tree_node_lib PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>
@@ -42,6 +47,8 @@ ament_target_dependencies(behavior_tree_node_lib
   rclcpp_action
   behaviortree_cpp_v3
   my_robot_interfaces
+  nav2_behavior_tree
+  controller_manager_msgs
 )
 target_link_libraries(behavior_tree_node_lib
   print_command_action
